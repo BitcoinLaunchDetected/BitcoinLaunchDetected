@@ -31,6 +31,7 @@ header {
   background: $dark;
   .inner-header {
     @include outer-container();
+    padding: 10px 0;
   }
 }
 

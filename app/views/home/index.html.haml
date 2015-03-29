@@ -1,3 +1,7 @@
 %section.title
-  %h1 BitcoinLaunchDetected
+  %h1 Bitcoin Launch Detected!
   %blockquote "A TWO-FACTOR AUTHENTICATION INTERNET OF THINGS device that uses the CLOUD and BIG DATA to transfer VIRTUAL CURRENCY in REALTIME ASYNCHRONOUSLY."
+.clearfix
+- if user_signed_in?
+  %section.button-container
+    = button_to "Transact", new_transaction_path, class: "transact", method: :get

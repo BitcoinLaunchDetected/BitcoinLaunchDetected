@@ -40,13 +40,9 @@ class TransactionsController < ApplicationController
 
   def affirm
     user = User.find(params[:id])
+    user.affirm if user
 
-    if user
-      unless user.unfinished_transactions.empty?
-        transaction = user.unfinished_transactions.first
-        transaction.update(affirmed: transaction.affirmed + 1)
-      end
-    end
+    render nothing: true
   end
 
   # PATCH/PUT /transactions/1

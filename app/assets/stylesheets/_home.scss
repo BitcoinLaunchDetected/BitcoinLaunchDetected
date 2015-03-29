@@ -16,8 +16,25 @@
     @include span-columns(8);
     @include shift(2);
 
+    display: block;
     font-style: italic;
     text-align: justify;
     color: $mid;
+  }
+}
+
+.clearfix {
+  clear: both;
+}
+
+.button-container {
+  @include span-columns(12);
+  text-align: center;
+
+  .transact {
+    font-size: 2em;
+    padding: 10px;
+    background: $light;
+    border: solid 2px $dark;
   }
 }

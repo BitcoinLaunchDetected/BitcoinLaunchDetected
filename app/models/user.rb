@@ -7,10 +7,14 @@ class User < ActiveRecord::Base
   has_many :initiated_transactions, class_name: 'Transaction', foreign_key: 'sender_id'
   has_many :received_transactions, class_name: 'Transaction', foreign_key: 'recipient_id'
 
-  def unfinished_transactions
-    init = self.initiated_transactions.where("affirmed < ?", 2)
-    recv = self.receieved_transactions.where("affirmed < ?", 2)
+  def affirm
+    init = user.initiated_transactions.where(sender_affirm: false)
+    recip = user.received_transactions.where(recip_affirm: false)
 
-    init + recv
+    if init.any?
+      init.first.update(sender_affirm: true)
+    elsif recip.any?
+      recip.first.update(recip_affirm: true)
+    end
   end
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :transactions do
-    get '/affirm', to: 'transactions#affirm'
+    get '/affirm', to: 'transactions#affirm', on: :collection
   end
 
   root to: 'home#index'
