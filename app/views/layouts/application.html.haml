@@ -11,13 +11,13 @@
       .inner-header
         .brand= link_to 'BLD', root_path
         .right
-          - unless user_signed_in?
+          - if user_signed_in?
+            %span.welcome Welcome
+            = current_user.full_name
+            = link_to 'Sign out', destroy_user_session_path, method: :delete
+          - else
             = link_to 'Sign in', new_user_session_path
             = link_to 'Register', new_user_registration_path
-          - else
-            %span.welcome Welcome
-              = current_user.full_name
-            = link_to 'Sign out', destroy_user_session_path, method: :delete
 
     %section.container
       %p.notice= notice
