@@ -14,7 +14,7 @@
 </p>
 
 <% if @transaction.affirmed? %>
-  <%= link_to "Proceed", transaction_proceed_path %>
+  <%= link_to "Proceed", proceed_transaction_path %>
 <% end %>
 
 <%= link_to 'List', transactions_path %>
