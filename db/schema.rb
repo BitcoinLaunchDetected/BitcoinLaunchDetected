@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329054640) do
+ActiveRecord::Schema.define(version: 20150329055207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "transactions", force: :cascade do |t|
-    t.integer  "user1_id"
-    t.integer  "user2_id"
+    t.integer  "sender"
+    t.integer  "recipient"
     t.decimal  "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
