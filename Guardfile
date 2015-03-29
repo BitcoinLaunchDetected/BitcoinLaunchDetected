@@ -33,10 +33,9 @@ guard 'livereload' do
 end
 
 # This is an example with all options that you can specify for guard-process
-guard 'process', :name => 'Server', :command => 'rails s' do
+guard 'process', :name => 'server', :command => 'bundle exec puma -C config/puma.rb' do
   watch('Gemfile.lock')
   watch('config')
   watch('db')
   watch('app/models')
 end
-
