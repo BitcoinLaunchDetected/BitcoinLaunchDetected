@@ -84,7 +84,9 @@ class TransactionsController < ApplicationController
     logger.debug resp.code
     logger.debug resp.body
 
-    render :show
+    @transaction.update(finished: true)
+
+    redirect_to action: "show"
   end
 
   def status

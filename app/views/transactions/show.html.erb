@@ -10,10 +10,14 @@
 </p>
 
 <% if @transaction.affirmed? %>
-  <%= form_tag("proceed") do %>
-    <%= password_field_tag "main_password", nil, placeholder: "Main Password" %><br />
-    <%= password_field_tag "second_password", nil, placeholder: "Secondary Password (Optional)" %><br />
-    <%= submit_tag "Proceed" %>
+  <% if @transaction.finished? %>
+    Transaction finished<br />
+  <% else %>
+    <%= form_tag("#{@transaction.id}/proceed") do %>
+      <%= password_field_tag "main_password", nil, placeholder: "Main Password" %><br />
+      <%= password_field_tag "second_password", nil, placeholder: "Secondary Password (Optional)" %><br />
+      <%= submit_tag "Proceed" %>
+    <% end %>
   <% end %>
 <% end %>
 
