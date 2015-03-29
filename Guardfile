@@ -35,7 +35,8 @@ end
 # This is an example with all options that you can specify for guard-process
 guard 'process', :name => 'Server', :command => 'rails s' do
   watch('Gemfile.lock')
-  watch('db/')
+  watch('config')
+  watch('db')
   watch('app/models')
 end
 
