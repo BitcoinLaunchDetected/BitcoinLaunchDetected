@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   has_many :received_transactions, class_name: 'Transaction', foreign_key: 'recipient_id'
 
   def affirm
-    init = user.initiated_transactions.where(sender_affirm: false)
-    recip = user.received_transactions.where(recip_affirm: false)
+    init = self.initiated_transactions.where(sender_affirm: false)
+    recip = self.received_transactions.where(recip_affirm: false)
 
     if init.any?
       init.first.update(sender_affirm: true)

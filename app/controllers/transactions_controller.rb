@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :set_transaction, only: [:show, :edit, :update, :destroy, :proceed, :status]
 
   # GET /transactions
   # GET /transactions.json
@@ -38,13 +38,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def affirm
-    user = User.find(params[:id])
-    user.affirm if user
-
-    render nothing: true
-  end
-
   # PATCH/PUT /transactions/1
   # PATCH/PUT /transactions/1.json
   def update
@@ -67,6 +60,21 @@ class TransactionsController < ApplicationController
       format.html { redirect_to transactions_url, notice: 'Transaction was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def affirm
+    user = User.find(params[:id])
+    user.affirm if user
+
+    render nothing: true
+  end
+
+  def proceed
+
+  end
+
+  def status
+    render json: {affirmed: @transaction.affirmed?}
   end
 
   private
