@@ -4,6 +4,11 @@
   <%= @transaction.recipient.full_name %>
 </p>
 
+<p>
+  Sender affirmed: <%= @transaction.sender_affirm %> <br/>
+  Recipient affirmed: <%= @transaction.recip_affirm %>
+</p>
+
 <% if @transaction.affirmed? %>
   <%= form_tag("proceed") do %>
     <%= password_field_tag "main_password" %>

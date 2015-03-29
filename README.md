@@ -2,7 +2,7 @@
 An INTERNET OF THINGS device that uses the CLOUD and BIG DATA to transfer VIRTUAL CURRENCY
 
 ## TODO
-- BITCOIN API
+- BLOCKCHAIN API
 - Final send-off button. Asynchronous, please?
 
 ### Totally stretch
