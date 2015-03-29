@@ -25,6 +25,7 @@ class TransactionsController < ApplicationController
   # POST /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
+    @transaction.sender = current_user
 
     respond_to do |format|
       if @transaction.save
@@ -34,6 +35,14 @@ class TransactionsController < ApplicationController
         format.html { render :new }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def affirm
+    user = User.find(params[:id])
+
+    if user
+
     end
   end
 
@@ -69,6 +78,6 @@ class TransactionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
-      params.require(:transaction).permit(:user1_id, :user2_id, :amount)
+      params.require(:transaction).permit(:recipient_id, :amount)
     end
 end

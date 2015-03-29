@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>User1</th>
-      <th>User2</th>
+      <th>Sender</th>
+      <th>Recipient</th>
       <th>Amount</th>
       <th colspan="3"></th>
     </tr>
@@ -15,8 +15,8 @@
   <tbody>
     <% @transactions.each do |transaction| %>
       <tr>
-        <td><%= transaction.user1_id %></td>
-        <td><%= transaction.user2_id %></td>
+        <td><%= transaction.sender.full_name %></td>
+        <td><%= transaction.recipient.full_name %></td>
         <td><%= transaction.amount %></td>
         <td><%= link_to 'Show', transaction %></td>
         <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
