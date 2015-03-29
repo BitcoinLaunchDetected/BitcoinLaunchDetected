@@ -14,7 +14,11 @@
 </p>
 
 <% if @transaction.affirmed? %>
-  <%= link_to "Proceed", proceed_transaction_path %>
+  <%= form_tag("proceed") do %>
+    <%= password_field_tag "main_password" %>
+    <%= password_field_tag "second_password" %>
+    <%= submit_tag "Proceed" %>
+  <% end %>
 <% end %>
 
 <%= link_to 'List', transactions_path %>

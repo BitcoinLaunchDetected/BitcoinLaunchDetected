@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     get '/affirm', to: 'transactions#affirm', on: :collection
 
     member do
-      get '/proceed', to: 'transactions#proceed'
+      post '/proceed', to: 'transactions#proceed'
       get '/status', to: 'transactions#status'
     end
   end

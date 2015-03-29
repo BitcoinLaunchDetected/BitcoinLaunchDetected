@@ -70,7 +70,21 @@ class TransactionsController < ApplicationController
   end
 
   def proceed
+    satoshi_amount = @transaction.amount * 100000000
 
+    request_url = "https://blockchain.info/merchant/#{@transaction.sender.guid}/payment"
+    request_url += "?password=#{params["main_password"]}"
+    if params[:second_password].present?
+      request_url += "&second_password=#{params[:second_password]}"
+    end
+    request_url += "&to=#{@transaction.recipient.address}"
+    request_url += "&amount=#{satoshi_amount}"
+
+    resp = HTTParty.get(request_url)
+    logger.debug resp.code
+    logger.debug resp.body
+
+    render :show
   end
 
   def status
