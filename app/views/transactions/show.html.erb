@@ -1,12 +1,7 @@
 <p>
-  <%= @transaction.sender.full_name %>
-  sending <%= @transaction.amount %> BTC to
-  <%= @transaction.recipient.full_name %>
-</p>
-
-<p>
-  Sender affirmed: <%= @transaction.sender_affirm %> <br/>
-  Recipient affirmed: <%= @transaction.recip_affirm %>
+<%= @transaction.sender.full_name %>
+sending <%= @transaction.amount %> BTC to
+<%= @transaction.recipient.full_name %>
 </p>
 
 <% if @transaction.affirmed? %>
@@ -19,6 +14,8 @@
       <%= submit_tag "Proceed" %>
     <% end %>
   <% end %>
+<% else %>
+  Transaction not confirmed<br />
 <% end %>
 
 <%= link_to 'List', transactions_path %>
