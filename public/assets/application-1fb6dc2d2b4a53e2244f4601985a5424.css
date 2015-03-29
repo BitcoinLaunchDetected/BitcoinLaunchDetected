@@ -1,0 +1,104 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ */
+/* Bourbon and Neat */
+/* line 4, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/neat/grid/_box-sizing.scss */
+html {
+  box-sizing: border-box;
+}
+
+/* line 9, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/neat/grid/_box-sizing.scss */
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/* Colors */
+/* Controller-specific styles */
+/* line 5, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/_home.scss */
+.container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 20, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/bourbon/addons/_clearfix.scss */
+.container::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/* line 10, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/_home.scss */
+.title h1 {
+  font-size: 3em;
+  text-align: center;
+}
+/* line 15, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/_home.scss */
+.title blockquote {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-left: 17.05961%;
+  font-style: italic;
+  color: #777;
+}
+/* line 89, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/neat/grid/_span-columns.scss */
+.title blockquote:last-child {
+  margin-right: 0;
+}
+
+/* General styles */
+/* line 26, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/application.scss */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 31, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/application.scss */
+header {
+  background: #222;
+}
+/* line 33, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/application.scss */
+header .inner-header {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 20, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/bourbon/addons/_clearfix.scss */
+header .inner-header::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/* line 38, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/application.scss */
+.brand {
+  float: left;
+  font-size: 2em;
+}
+
+/* line 43, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/application.scss */
+.right {
+  float: right;
+  line-height: 2em;
+}
+
+/* line 48, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/application.scss */
+.brand a, .right a {
+  text-decoration: none;
+  color: #DEDEDE;
+}
+
+/* line 53, /Users/jonathan/workspace/ruby/bld/app/assets/stylesheets/application.scss */
+.right a {
+  margin-left: 10px;
+}
