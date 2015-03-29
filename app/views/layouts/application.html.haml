@@ -15,6 +15,8 @@
             = link_to 'Sign in', new_user_session_path
             = link_to 'Register', new_user_registration_path
           - else
+            %span.welcome Welcome
+              = current_user.full_name
             = link_to 'Sign out', destroy_user_session_path, method: :delete
 
     %section.container

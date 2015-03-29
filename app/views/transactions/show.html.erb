@@ -1,16 +1,7 @@
 <p>
-  <strong>Sender</strong>
   <%= @transaction.sender.full_name %>
-</p>
-
-<p>
-  <strong>Recipient</strong>
+  sending <%= @transaction.amount %> BTC to
   <%= @transaction.recipient.full_name %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @transaction.amount %>
 </p>
 
 <% if @transaction.affirmed? %>

@@ -1,29 +1,13 @@
 <h1>Transactions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Sender</th>
-      <th>Recipient</th>
-      <th>Amount</th>
-      <th>Affirmed</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @transactions.each do |transaction| %>
-      <tr>
-        <td><%= transaction.sender.full_name %></td>
-        <td><%= transaction.recipient.full_name %></td>
-        <td><%= transaction.amount %></td>
-        <td><%= transaction.affirmed? %></td>
-        <td><%= link_to 'Show', transaction %></td>
-        <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @transactions.each do |transaction| %>
+  <%= transaction.sender.full_name %>
+  sending <%= transaction.amount %> BTC to
+  <%= transaction.recipient.full_name %>
+  <%= link_to 'Show', transaction %>
+  <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %><br />
+  </tr>
+<% end %>
 
 <br>
 
