@@ -42,7 +42,10 @@ class TransactionsController < ApplicationController
     user = User.find(params[:id])
 
     if user
-
+      unless user.unfinished_transactions.empty?
+        transaction = user.unfinished_transactions.first
+        transaction.update(affirmed: transaction.affirmed + 1)
+      end
     end
   end
 
