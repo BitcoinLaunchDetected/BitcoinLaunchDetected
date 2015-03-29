@@ -12,14 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :recipient_id %><br>
-    <%= f.number_field :recipient_id %>
+    <%= f.select :recipient_id, User.where.not(id: current_user.id).collect {|u| [u.full_name, u.id]} %>
   </div>
   <div class="field">
-    <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
+    <%= f.text_field :amount, placeholder: 'Amount' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Transact!' %>
   </div>
 <% end %>

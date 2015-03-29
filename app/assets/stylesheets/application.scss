@@ -53,3 +53,21 @@ header {
 .right a {
   margin-left: 10px;
 }
+
+/* User Auth pages */
+h1, h2 {
+  text-align: center;
+  font-size: 2em;
+}
+
+/* All forms */
+form {
+  text-align: center;
+
+  input, select {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    border: solid 2px $dark;
+    padding: 5px;
+  }
+}
