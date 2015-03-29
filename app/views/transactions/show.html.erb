@@ -11,8 +11,8 @@
 
 <% if @transaction.affirmed? %>
   <%= form_tag("proceed") do %>
-    <%= password_field_tag "main_password" %>
-    <%= password_field_tag "second_password" %>
+    <%= password_field_tag "main_password", nil, placeholder: "Main Password" %><br />
+    <%= password_field_tag "second_password", nil, placeholder: "Secondary Password (Optional)" %><br />
     <%= submit_tag "Proceed" %>
   <% end %>
 <% end %>
