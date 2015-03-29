@@ -32,6 +32,10 @@ gem 'devise'
 # Haml for prettier markup
 gem 'haml'
 
+# Bourbon and Neat for grid
+gem 'bourbon'
+gem 'neat'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

@@ -9,7 +9,46 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
- *= require_tree .
- *= require_self
  */
+
+/* Bourbon and Neat */
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+
+/* Colors */
+@import 'colors';
+
+/* Controller-specific styles */
+@import 'home';
+
+/* General styles */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: $dark;
+  .inner-header {
+    @include outer-container();
+  }
+}
+
+.brand {
+  float: left;
+  font-size: 2em;
+}
+
+.right {
+  float: right;
+  line-height: 2em;
+}
+
+.brand a, .right a {
+  text-decoration: none;
+  color: $light;
+}
+
+.right a {
+  margin-left: 10px;
+}

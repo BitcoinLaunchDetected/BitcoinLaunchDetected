@@ -8,14 +8,17 @@
 
   %body
     %header
-      .brand= link_to 'BLD', root_path
-      .right
-        - unless user_signed_in?
-          = link_to 'Sign in', new_user_registration_path
-          = link_to 'Register', new_user_session_path
-        - else
-          = link_to 'Sign out', destroy_user_session_path
-    %p.notice= notice
-    %p.alert= alert
+      .inner-header
+        .brand= link_to 'BLD', root_path
+        .right
+          - unless user_signed_in?
+            = link_to 'Sign in', new_user_registration_path
+            = link_to 'Register', new_user_session_path
+          - else
+            = link_to 'Sign out', destroy_user_session_path
 
-    = yield
+    %section.container
+      %p.notice= notice
+      %p.alert= alert
+
+      = yield

@@ -1,0 +1,22 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  @include outer-container();
+}
+
+.title {
+  h1 {
+    font-size: 3em;
+    text-align: center;
+  }
+
+  blockquote {
+    @include span-columns(8);
+    @include shift(2);
+
+    font-style: italic;
+    color: $mid;
+  }
+}
