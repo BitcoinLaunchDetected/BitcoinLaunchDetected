@@ -2,32 +2,47 @@ TCPClient client;
 
 // Define the pins
 int sensorPin = A0;  // The potentiometers sensor pin
-int ledPin = D0;     // The LED that will be lit by the sensor pin
-int ledIsOn = D7;
-int threshold = 900; // The variable storing the threshold of when to turn on the potentiometers value
+int ledPinG = D0;    // The Green LED
+int ledPinR = D1;    // The Red LED
+int ledIsOn = D7;	 // The is on LED
+int threshold = 700; // The variable storing the threshold of when the potentiometers is turned
 
 
 void setup() {
-    pinMode(ledPin, OUTPUT);   // Declare the ledPin as an OUTPUT
-    pinMode(ledIsOn, OUTPUT);
-    pinMode(sensorPin, INPUT);
-    
-    client.connect("bitcoin-launch-detected.herokuapp.com", 80);
+	pinMode(ledPinG, OUTPUT);  // Declare the Green Pin
+	pinMode(ledPinR, OUTPUT);  // Declare the Red Pin
+	pinMode(ledIsOn, OUTPUT);  // Declare the Is On Pin
+	pinMode(sensorPin, INPUT); // Declare the potentiometer input pin
 }
 
 void loop() {
-    digitalWrite(ledIsOn, HIGH);   // Turn ON the LED pins
-    if(analogRead(sensorPin) > threshold) {
-        digitalWrite(ledPin, HIGH);
+	if (!client.connected()) {		  // If it disconnects from the internet
+		client.stop();				  // Close the connection
+		digitalWrite(ledIsOn, LOW);   // Turn OFF the Is On LED
+	}
+	else {
+		digitalWrite(ledIsOn, HIGH);   // Turn ON the Is On LED
+	}
 
-        client.println("GET /transactions/affirm?id=4 HTTP/1.1");
-        client.println("Host: bitcoin-launch-detected.herokuapp.com");
-        client.println();
+	if (analogRead(sensorPin) > threshold) {	// If the key has been turned ON
+		digitalWrite(ledPinG, LOW);				// Display data got transfering
+		digitalWrite(ledPinR, HIGH);			// Display
 
-        digitalWrite(ledIsOn, LOW);
+		/*
+		 *	Preform the get request on the site showing the key has been turned
+		 */
+		if (client.connect("bitcoin-launch-detected.herokuapp.com", 80))
+		{
+			client.println("GET /transactions/affirm?id=4 HTTP/1.0");
+			client.println("Host: bitcoin-launch-detected.herokuapp.com");
+			client.println("Content-Length: 0");
+			client.println();
+		}
 
-        while (analogRead(sensorPin) <= threshold) SPARK_WLAN_Loop();
-    } else {
-        digitalWrite(ledPin, LOW);
-    }
+		delay(2000);					// Delay
+	}
+	else {								// If the key has not been turned
+		digitalWrite(ledPinG, HIGH);	// Display it's on standby
+		digitalWrite(ledPinR, LOW);		// Display
+	}
 }
